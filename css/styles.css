@@ -11,6 +11,7 @@
     --gradient-color: rgba(46, 47, 66, 0.7);
     --media-bg-color: rgba(255, 255, 255, 0.1);
     --custumers-color:rgba(142, 143, 153, 1);
+    --modal-window: rgb(252, 252, 252);
 }
 
 
@@ -137,10 +138,22 @@ img {
 }
 
 .link{
+    position: relative;
     padding-top: 24px;
     padding-bottom: 24px;
     color: var(--title-text-color);
     text-decoration: none;
+
+}
+
+.header-link.current::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
 }
 
 /*Контакти*/
@@ -165,6 +178,7 @@ img {
 .contacts-item:focus {
     color: var(--secondary-accent-color);
     text-decoration: none;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*Кнопки Button list*/
@@ -204,8 +218,8 @@ img {
     color: var(--primary-bg-collor);
     background-color: var(--secondary-accent-color);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
-    /*border: none;*/
     border-color: var(--secondary-accent-color);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*Links*/
@@ -217,6 +231,7 @@ img {
 .link:hover,
 .link:focus {
     color: var(--secondary-accent-color);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -242,6 +257,7 @@ img {
 }
 
 .cards-item {
+    
     flex-basis: calc(100% - (24px*2))/3;
 }
 
@@ -257,7 +273,44 @@ img {
     border-top: none;
 }
 
+.cards-thumb{
+    position: relative;
+}
+
+
+.cards-item:hover .thumb-text{
+    opacity: 1;
+    transform: translateY(0);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.thumb-text{
+position: absolute;
+top: 0;
+right: 0;
+width: 100%;
+height: 100%;
+
+font-size: 16px;
+line-height: 1.5;
+letter-spacing: 0.02em;
+
+opacity: 0;
+
+background-color: var(--secondary-accent-color);
+color: #F4F4FD;
+padding-top: 40px;
+padding-left: 32px;
+padding-right: 32px;
+
+
+transform: translateY(100%);
+transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+overflow: hidden;
+}
+
 .cards-link{
+
 display: block;
 }
 
@@ -265,6 +318,7 @@ display: block;
 .cards-link:hover,
 .cards-link:focus{
     box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -318,8 +372,63 @@ display: block;
 .hero-btn:hover,
 .hero-btn:focus {
     background-color: var(--secondary-accent-color);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/*Modal window*/
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(46, 47, 66, 0.4);;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    opacity: 1;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden{
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.backdrop.is-hidden.modal{
+    transform: translate(-50%, -50%) scale(0.75);
+}
+
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 408px;
+    height: 576px;
+    background-color: var(--modal-window);
+
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-modal{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    background-color: ;
+    background: var(--btn-bg-collor);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+}
+
+.btn-modal:active{
+    fill: var(--primary-bg-collor);
+    background-color: var(--accent-color); 
+}
 
 /*Skills*/
 .skills {
@@ -441,6 +550,7 @@ display: block;
 .link-social:hover,
 .link-social:focus{
     background-color:var(--accent-color);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .socials-icon{
@@ -479,6 +589,7 @@ display: block;
 .cust-link:focus{
 color: var(--accent-color);
 border: 1px solid var(--accent-color);
+transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cust-icon{
@@ -532,5 +643,6 @@ display: flex;
 .link-media:hover,
 .link-media:focus{
     background-color: var(--green);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 

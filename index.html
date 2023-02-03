@@ -25,9 +25,9 @@
                 <a class="logo" href="./index.html"><span class="accent">WEB</span><span
                         class="logo-accent">STUDIO</span></a>
                 <ul class="map-link list">
-                    <li class="map-item"><a class="link current" href="./index.html">Studio</a></li>
-                    <li class="map-item"><a class="link" href="./portfolio.html">Portfolio</a></li>
-                    <li class="map-item"><a class="link" href="">Contacs</a></li>
+                    <li class="map-item"><a class="header-link link current" href="./index.html">Studio</a></li>
+                    <li class="map-item"><a class="header-link link" href="./portfolio.html">Portfolio</a></li>
+                    <li class="map-item"><a class="header-link link" href="">Contacs</a></li>
                 </ul>
             </nav>
             <div class="contacts-container">
@@ -48,9 +48,29 @@
         <section class="hero">
             <div class="hero-container">
                 <h1 class="hero-title">Effective Solutions for Your Business</h1>
-                <button class="hero-btn" type="button">Order Service</button>
+                <button class="hero-btn" data-modal-open type="button">Order Service</button>
+                <!--Modal window-->
+                <div class="backdrop is-hidden" data-modal>
+                    <div class="modal">
+                        
+                    <button class="btn-modal" data-modal-close>
+                    <svg class="cross" width="8" height="8">
+                        <use href="./images/icons.svg#icon-closecross"></use>
+                    </svg>    
+                    </button>
+                    </div>
+                    
+                </div>
+                
             </div>
+
+            
         </section>
+
+
+       
+
+
         <!--Skills section-->
         <section class="skills-section">
             <div class="container skills">
@@ -407,6 +427,7 @@
     </div>
        
     </footer>
+    <script src="./js/modal.js"></script>
 </body>
 
 </html>
